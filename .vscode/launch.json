@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-VsvendasApplication<vsvendas>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.amina.vsvendas.VsvendasApplication",
+            "projectName": "vsvendas",
+            "args": ""
+        }
+    ]
+}
