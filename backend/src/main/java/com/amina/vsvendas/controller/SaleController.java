@@ -1,6 +1,10 @@
 package com.amina.vsvendas.controller;
 
+import java.util.List;
+
 import com.amina.vsvendas.dto.SaleDTO;
+import com.amina.vsvendas.dto.SaleSucessDTO;
+import com.amina.vsvendas.dto.SaleSumDTO;
 import com.amina.vsvendas.services.SaleService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +25,18 @@ public class SaleController {
     @GetMapping
     public ResponseEntity<Page<SaleDTO>> findAll(Pageable pageable) {
         Page<SaleDTO> list = saleService.findAll(pageable);
+        return ResponseEntity.ok(list);
+    }
+
+    @GetMapping(value = "/amount-by-seller")
+    public ResponseEntity<List<SaleSumDTO>> amountGroupedBySeller() {     
+        List<SaleSumDTO> list = saleService.amountGroupedBySeller();   
+        return ResponseEntity.ok(list);
+    }
+
+    @GetMapping(value = "/success-by-seller")
+    public ResponseEntity<List<SaleSucessDTO>> sucessGroupedBySeller() {     
+        List<SaleSucessDTO> list = saleService.sucessGroupedBySeller();   
         return ResponseEntity.ok(list);
     }
 

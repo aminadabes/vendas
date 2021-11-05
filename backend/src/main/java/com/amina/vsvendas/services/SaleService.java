@@ -1,6 +1,10 @@
 package com.amina.vsvendas.services;
 
+import java.util.List;
+
 import com.amina.vsvendas.dto.SaleDTO;
+import com.amina.vsvendas.dto.SaleSucessDTO;
+import com.amina.vsvendas.dto.SaleSumDTO;
 import com.amina.vsvendas.entity.Sale;
 import com.amina.vsvendas.repository.SaleRepository;
 import com.amina.vsvendas.repository.SellerRepository;
@@ -28,6 +32,14 @@ public class SaleService {
         return result.map((Sale sale) -> new SaleDTO(sale));
     }
 
+    @Transactional(readOnly = true)
+    public List<SaleSumDTO> amountGroupedBySeller(){
+        return saleRepository.amountGroupedBySeller();
+    }
 
-
+    @Transactional(readOnly = true)
+    public List<SaleSucessDTO> sucessGroupedBySeller(){
+        return saleRepository.sucessGroupedBySeller();
+    }
+    
 }
